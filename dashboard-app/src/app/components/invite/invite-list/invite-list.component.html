@@ -1,0 +1,30 @@
+<!--<p>invite-list works!</p>-->
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>UID</th>
+      <th>First</th>
+      <th>Middle</th>
+      <th>Last</th>
+      <th>Email</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let invite of invites">
+      <td>{{invite!.uid}}</td>
+      <td>{{invite!.firstName}}</td>
+      <td>{{invite!.middleName}}</td>
+      <td>{{invite!.lastName}}</td>
+      <td>{{invite!.email}}</td>
+      <td>{{invite!.status}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <p *ngIf="!invites?.length">No records available</p>
+</div>

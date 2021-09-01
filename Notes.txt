@@ -1,0 +1,193 @@
+usr: ampit
+
+AKIA2VNJHP4N5WG3JW2C
+iJsI7L8z2MGG9WRQBZ9PrKw9zbDuRp5MxXMiCFOk
+
+profile: ampit_dev_user
+
+#########################################
+
+update amplify cli global
+npm i -g @aws-amplify/cli
+
+#########################################
+
+"amplify status" will show you what you've added already and if it's locally configured or deployed
+"amplify add <category>" will allow you to add features like user login or a backend API
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify console" to open the Amplify Console and view your project status
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+#########################################
+
+Steps:
+
+1, Install the Amplify CLI using the command:
+npm install -g @aws-amplify/cli
+
+2, Configure amplify:
+amplify configure
+
+- create user / keys / profile
+
+3, Create angular app 'dashboard-app'
+npx -p @angular/cli ng new dashboard-app
+
+- select routing and css
+
+4, Update polifills
+src/polyfills.ts
+
+'
+(window as any).global = window;
+(window as any).process = {
+  env: {DEBUG: undefined},
+};
+'
+
+5, cd dashboard-app
+
+6, Initialise amplify
+amplify init
+
+- change defaults to angular app etc...
+
+project:- dashboardapp
+env:- dev
+auth:- use aws profile created
+profile:- ampit_dev_user
+
+7, Install the Amplify Angular libraries:
+npm install --save aws-amplify @aws-amplify/ui-angular
+
+8: Start using the following commands:
+npm start
+
+#####################################
+
+Authentication
+
+1, add auth
+amplify add auth
+
+- default | username | skip adv'
+
+2, Add amplify authenticator code
+
+3, Add graphql
+npm install graphql --save-dev
+
+4, Push
+
+#####################################
+
+DB & API
+
+1, add api
+amplify add api
+
+-Graphql
+-InviteAPI
+-InviteAPIKey
+-365
+-edit schema
+
+./amplify/backend/api/InviteAPI/schema.graphql
+
+2, Push API
+amplify push
+
+- Generare source
+- angular
+- ALL defaults
+
+
+3, Add api code
+
+#####################################
+
+Create lambda
+
+1, Add function
+amplify add function
+
+....
+
+
+
+
+#####################################
+
+Hosting
+
+1, Add hosting
+amplify add hosting
+
+
+#####################################
+
+Increase Budget
+
+ "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
+                },
+
+######################################
+
+Bootstrap & JQuery
+
+"styles": [
+              "src/styles.sass",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.sass"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/popper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"]
+
+
+#####################################
+
+App conponents
+
+???
+ng g class types/Invite --type
+
+
+ng g component components/app/header
+ng g component components/app/footer
+ng g component components/sponsor/SponsorDashboard
+ng g component components/invite/InviteList
+ng g component components/invite/InviteView
+ng g component components/invite/InviteCreate
+ng g component components/invite/InviteChecks
+ng g component components/invite/InviteEmployee
+ng g component components/invite/InviteSummary
+
+ng generate service services/InviteFormData
+ng generate class models/EmployeeDetails
+ng generate class models/ChecksDetails
+
+#####################################
+
+npm installs
+
+npm install graphql --save-dev
+npm install bootstrap --save
+npm install popper.js --save
+npm install bootstrap jquery --save
+
+//npm install --save ts-md5
+npm install md5-typescript -save
+
+// popercore???
+
+
+
+
+
+

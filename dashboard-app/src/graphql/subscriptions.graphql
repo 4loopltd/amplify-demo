@@ -1,0 +1,49 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateInvite {
+  onCreateInvite {
+    id
+    uid
+    firstName
+    middleName
+    lastName
+    dob
+    email
+    role
+    odsCode
+    status
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateInvite {
+  onUpdateInvite {
+    id
+    uid
+    firstName
+    middleName
+    lastName
+    dob
+    email
+    role
+    odsCode
+    status
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteInvite {
+  onDeleteInvite {
+    id
+    uid
+    firstName
+    middleName
+    lastName
+    dob
+    email
+    role
+    odsCode
+    status
+    createdAt
+    updatedAt
+  }
+}

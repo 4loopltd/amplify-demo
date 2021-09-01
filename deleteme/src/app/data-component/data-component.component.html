@@ -1,0 +1,16 @@
+<p>data-component works!</p>
+
+<table>
+  <tr>
+    <td>First</td>
+    <td><input type="text" [(ngModel)]="model.first" #first /></td>
+  </tr>
+  <tr>
+    <td>Last</td>
+    <td><input type="text" [(ngModel)]="model.last" #last /></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="Back" routerLink="" /></td>
+    <td><input type="button" value="Complete" (click)="submit()" /></td>
+  </tr>
+</table>

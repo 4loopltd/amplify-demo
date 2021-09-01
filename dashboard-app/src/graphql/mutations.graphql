@@ -1,0 +1,58 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateInvite(
+  $input: CreateInviteInput!
+  $condition: ModelInviteConditionInput
+) {
+  createInvite(input: $input, condition: $condition) {
+    id
+    uid
+    firstName
+    middleName
+    lastName
+    dob
+    email
+    role
+    odsCode
+    status
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateInvite(
+  $input: UpdateInviteInput!
+  $condition: ModelInviteConditionInput
+) {
+  updateInvite(input: $input, condition: $condition) {
+    id
+    uid
+    firstName
+    middleName
+    lastName
+    dob
+    email
+    role
+    odsCode
+    status
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteInvite(
+  $input: DeleteInviteInput!
+  $condition: ModelInviteConditionInput
+) {
+  deleteInvite(input: $input, condition: $condition) {
+    id
+    uid
+    firstName
+    middleName
+    lastName
+    dob
+    email
+    role
+    odsCode
+    status
+    createdAt
+    updatedAt
+  }
+}

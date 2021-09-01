@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Summary of employee</h2>
+</div>
+
+<div class="container">
+  <table class="table">
+    <tbody>
+    <tr>
+      <th scope="row">First Name</th>
+      <td>{{employeeDetails.firstName}}</td>
+      <td><a routerLink="/inviteemployee" fragment="firstName">Change</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Middle Name</th>
+      <td>{{employeeDetails.middleName}}</td>
+      <td><a routerLink="/inviteemployee" fragment="middleName">Change</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Last Name</th>
+      <td>{{employeeDetails.lastName}}</td>
+      <td><a routerLink="/inviteemployee" fragment="lastName">Change</a></td>
+    </tr>
+    <tr>
+      <th scope="row">DOB</th>
+      <td>{{employeeDetails.dob}}</td>
+      <td><a routerLink="/inviteemployee" fragment="dob">Change</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td>{{employeeDetails.email}}</td>
+      <td><a routerLink="/inviteemployee" fragment="email">Change</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Role</th>
+      <td>{{employeeDetails.role}}</td>
+      <td><a routerLink="/inviteemployee" fragment="role">Change</a></td>
+    </tr>
+    <tr>
+      <th scope="row">OSD Code</th>
+      <td>{{employeeDetails.odsCode}}</td>
+      <td><a routerLink="/inviteemployee" fragment="odsCode">Change</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h3>Confirm employment checks are complete</h3>
+  <div class="form-check">
+    <input id="checks" type="checkbox" class="form-check-input" [(ngModel)]="checkDetails.checks"/>
+    <label class="form-check-label" for="checks">I confirm that all of these checks have been completed.</label>
+  </div>
+</div>
+
+<div class="container">
+  <button type="button" class="btn btn-primary" routerLink="/">Home</button>
+
+  <button type="button" class="btn btn-primary" routerLink="/inviteemployee">Back</button>
+  <button type="button" class="btn btn-success" routerLink="/" (click)="submit()">Complete</button>
+</div>

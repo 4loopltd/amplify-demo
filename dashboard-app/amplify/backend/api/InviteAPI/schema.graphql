@@ -1,0 +1,12 @@
+type Invite @model {
+  id: ID!
+  uid: String!
+  firstName: String!
+  middleName: String!
+  lastName: String!
+  dob: String!
+  email: String!
+  role: String!
+  odsCode: String!
+  status: String!
+}
