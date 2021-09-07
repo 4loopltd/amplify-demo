@@ -6,7 +6,7 @@
 
   <div class="form-group">
     <label for="firstName">First name</label>
-    <input type="text" class="form-control" id="firstName" [(ngModel)]="employeeDetails.firstName"/>
+    <input type="text" class="form-control" id="firstName" [(ngModel)]="employeeDetails.firstName" required="true"/>
   </div>
   <div class="form-group">
     <label for="middleName">Middle name</label>
@@ -14,20 +14,33 @@
   </div>
   <div class="form-group">
     <label for="lastName">Last name</label>
-    <input type="text" class="form-control" id="lastName" [(ngModel)]="employeeDetails.lastName"/>
+    <input type="text" class="form-control" id="lastName" [(ngModel)]="employeeDetails.lastName" required="true"/>
   </div>
+  <!--
   <div class="form-group">
-    <label for="dob">DOB</label>
-    <input type="text" class="form-control" id="dob" [(ngModel)]="employeeDetails.dob"/>
+    <label>DOB</label>
+  </div>
+  -->
+  <div class="form-group row">
+    <div class="col">
+      <label for="dobDay">Day</label>
+      <input type="text" class="form-control" id="dobDay" size="2" [(ngModel)]="employeeDetails.dobDay"/>
+    </div>
+    <div class="col">
+      <label for="dobDay">Month</label>
+      <input type="text" class="form-control" id="dobMonth" size="2" [(ngModel)]="employeeDetails.dobMonth"/>
+    </div>
+    <div class="col">
+      <label for="dobDay">Year</label>
+      <input type="text" class="form-control" id="dobYear" size="4" [(ngModel)]="employeeDetails.dobYear"/>
+    </div>
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" [(ngModel)]="employeeDetails.email"/>
-    <!--
-<input type="email" class="form-control" id="email" [(ngModel)]="employeeDetails.email"
-       aria-describedby="emailHelp"/>
-<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
--->
+    <input type="email" class="form-control" id="email" [(ngModel)]="employeeDetails.email"
+           aria-describedby="emailHelp" required="true"/>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
   </div>
   <div class="form-group">
     <label for="role">Role</label>
@@ -42,5 +55,6 @@
 
 <div class="container">
   <button type="button" class="btn btn-primary" routerLink="/invitechecks">Back</button>
-  <button type="button" class="btn btn-success" routerLink="/invitesummary">Next</button>
+  <button type="button" class="btn btn-success" routerLink="/invitesummary"
+          [disabled]="!employeeDetails.firstName || !employeeDetails.lastName || !employeeDetails.email">Next</button>
 </div>

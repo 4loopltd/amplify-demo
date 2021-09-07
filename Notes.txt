@@ -187,7 +187,9 @@ npm install md5-typescript -save
 // popercore???
 
 
+########################################
 
-
+E£xample Node salt
+https://stackoverflow.com/questions/17201450/salt-and-hash-password-in-nodejs-w-crypto
 
 

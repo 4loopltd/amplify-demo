@@ -1,11 +1,29 @@
+/*
+•	Invitation Status
+o	Sent
+o	Accepted
+o	Complete
+•	PYI Status
+o	Pending Review
+o	Review - Verified
+o	Review - Verification Failed
+ */
+
 export type Invite = {
   uid: string,
+  salt: string,
   firstName: string,
   middleName: string,
   lastName: string,
-  dob: string,
+  dobDay: number,
+  dobMonth: number,
+  dobYear: number,
   email: string,
   role: string,
   odsCode: string,
-  status: string
+  statusInvite: string,
+  statusPYI: string,
+  createdBy: string
 }
+
+

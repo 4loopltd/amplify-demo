@@ -3,14 +3,19 @@ query GetInvite($id: ID!) {
   getInvite(id: $id) {
     id
     uid
+    salt
     firstName
     middleName
     lastName
-    dob
+    dobDay
+    dobMonth
+    dobYear
     email
     role
     odsCode
-    status
+    statusInvite
+    statusPYI
+    createdBy
     createdAt
     updatedAt
   }
@@ -24,14 +29,19 @@ query ListInvites(
     items {
       id
       uid
+      salt
       firstName
       middleName
       lastName
-      dob
+      dobDay
+      dobMonth
+      dobYear
       email
       role
       odsCode
-      status
+      statusInvite
+      statusPYI
+      createdBy
       createdAt
       updatedAt
     }

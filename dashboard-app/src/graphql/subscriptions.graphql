@@ -3,14 +3,19 @@ subscription OnCreateInvite {
   onCreateInvite {
     id
     uid
+    salt
     firstName
     middleName
     lastName
-    dob
+    dobDay
+    dobMonth
+    dobYear
     email
     role
     odsCode
-    status
+    statusInvite
+    statusPYI
+    createdBy
     createdAt
     updatedAt
   }
@@ -19,14 +24,19 @@ subscription OnUpdateInvite {
   onUpdateInvite {
     id
     uid
+    salt
     firstName
     middleName
     lastName
-    dob
+    dobDay
+    dobMonth
+    dobYear
     email
     role
     odsCode
-    status
+    statusInvite
+    statusPYI
+    createdBy
     createdAt
     updatedAt
   }
@@ -35,14 +45,19 @@ subscription OnDeleteInvite {
   onDeleteInvite {
     id
     uid
+    salt
     firstName
     middleName
     lastName
-    dob
+    dobDay
+    dobMonth
+    dobYear
     email
     role
     odsCode
-    status
+    statusInvite
+    statusPYI
+    createdBy
     createdAt
     updatedAt
   }

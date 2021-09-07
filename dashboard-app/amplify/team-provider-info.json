@@ -15,7 +15,7 @@
       "function": {
         "emailoninsert": {
           "deploymentBucketName": "amplify-dashboardapp-dev-120223-deployment",
-          "s3Key": "amplify-builds/emailoninsert-55676b50615775655241-build.zip"
+          "s3Key": "amplify-builds/emailoninsert-4d6b746164382b377a71-build.zip"
         }
       }
     }

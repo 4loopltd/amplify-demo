@@ -22,7 +22,10 @@
     </tr>
     <tr>
       <th scope="row">DOB</th>
-      <td>{{employeeDetails.dob}}</td>
+      <td *ngIf="employeeDetails.dobDay && employeeDetails.dobMonth && employeeDetails.dobYear; else elseBlock">{{employeeDetails.dobDay}}/{{employeeDetails.dobMonth}}/{{employeeDetails.dobYear}}</td>
+      <ng-template #elseBlock>
+        <td></td>
+      </ng-template>
       <td><a routerLink="/inviteemployee" fragment="dob">Change</a></td>
     </tr>
     <tr>
@@ -56,5 +59,6 @@
   <button type="button" class="btn btn-primary" routerLink="/">Home</button>
 
   <button type="button" class="btn btn-primary" routerLink="/inviteemployee">Back</button>
-  <button type="button" class="btn btn-success" routerLink="/" (click)="submit()">Complete</button>
+  <button type="button" class="btn btn-success" routerLink="/" (click)="submit()"
+          [disabled]="!checkDetails.checks">Complete</button>
 </div>

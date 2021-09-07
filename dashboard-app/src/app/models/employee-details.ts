@@ -1,9 +1,11 @@
 export class EmployeeDetails {
-  firstName!: string;
+  firstName: string = '';
   middleName!: string;
-  lastName!: string;
-  dob!: string; // Date
-  email!: string;
+  lastName: string = '';
+  dobDay!: number;
+  dobMonth!: number;
+  dobYear!: number;
+  email: string = '';
   role!: string;
   odsCode!: string;
 }

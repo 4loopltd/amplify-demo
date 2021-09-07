@@ -5,21 +5,23 @@
     <thead>
     <tr>
       <th>UID</th>
+      <th>Owner</th>
       <th>First</th>
-      <th>Middle</th>
       <th>Last</th>
       <th>Email</th>
-      <th>Status</th>
+      <th>Invite Status</th>
+      <th>PYI Status</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let invite of invites">
       <td>{{invite!.uid}}</td>
+      <td>{{invite!.createdBy}}</td>
       <td>{{invite!.firstName}}</td>
-      <td>{{invite!.middleName}}</td>
       <td>{{invite!.lastName}}</td>
       <td>{{invite!.email}}</td>
-      <td>{{invite!.status}}</td>
+      <td>{{invite!.statusInvite}}</td>
+      <td>{{invite!.statusPYI}}</td>
     </tr>
     </tbody>
   </table>

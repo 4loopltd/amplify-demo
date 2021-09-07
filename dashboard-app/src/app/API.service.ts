@@ -18,26 +18,36 @@ export type __SubscriptionContainer = {
 export type CreateInviteInput = {
   id?: string | null;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
 };
 
 export type ModelInviteConditionInput = {
   uid?: ModelStringInput | null;
+  salt?: ModelStringInput | null;
   firstName?: ModelStringInput | null;
   middleName?: ModelStringInput | null;
   lastName?: ModelStringInput | null;
-  dob?: ModelStringInput | null;
+  dobDay?: ModelIntInput | null;
+  dobMonth?: ModelIntInput | null;
+  dobYear?: ModelIntInput | null;
   email?: ModelStringInput | null;
   role?: ModelStringInput | null;
   odsCode?: ModelStringInput | null;
-  status?: ModelStringInput | null;
+  statusInvite?: ModelStringInput | null;
+  statusPYI?: ModelStringInput | null;
+  createdBy?: ModelStringInput | null;
   and?: Array<ModelInviteConditionInput | null> | null;
   or?: Array<ModelInviteConditionInput | null> | null;
   not?: ModelInviteConditionInput | null;
@@ -82,18 +92,35 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
+export type ModelIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
+};
+
 export type Invite = {
   __typename: "Invite";
   id: string;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -101,14 +128,19 @@ export type Invite = {
 export type UpdateInviteInput = {
   id: string;
   uid?: string | null;
+  salt?: string | null;
   firstName?: string | null;
   middleName?: string | null;
   lastName?: string | null;
-  dob?: string | null;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email?: string | null;
   role?: string | null;
   odsCode?: string | null;
-  status?: string | null;
+  statusInvite?: string | null;
+  statusPYI?: string | null;
+  createdBy?: string | null;
 };
 
 export type DeleteInviteInput = {
@@ -118,14 +150,19 @@ export type DeleteInviteInput = {
 export type ModelInviteFilterInput = {
   id?: ModelIDInput | null;
   uid?: ModelStringInput | null;
+  salt?: ModelStringInput | null;
   firstName?: ModelStringInput | null;
   middleName?: ModelStringInput | null;
   lastName?: ModelStringInput | null;
-  dob?: ModelStringInput | null;
+  dobDay?: ModelIntInput | null;
+  dobMonth?: ModelIntInput | null;
+  dobYear?: ModelIntInput | null;
   email?: ModelStringInput | null;
   role?: ModelStringInput | null;
   odsCode?: ModelStringInput | null;
-  status?: ModelStringInput | null;
+  statusInvite?: ModelStringInput | null;
+  statusPYI?: ModelStringInput | null;
+  createdBy?: ModelStringInput | null;
   and?: Array<ModelInviteFilterInput | null> | null;
   or?: Array<ModelInviteFilterInput | null> | null;
   not?: ModelInviteFilterInput | null;
@@ -157,14 +194,19 @@ export type CreateInviteMutation = {
   __typename: "Invite";
   id: string;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -173,14 +215,19 @@ export type UpdateInviteMutation = {
   __typename: "Invite";
   id: string;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -189,14 +236,19 @@ export type DeleteInviteMutation = {
   __typename: "Invite";
   id: string;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -205,14 +257,19 @@ export type GetInviteQuery = {
   __typename: "Invite";
   id: string;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -223,14 +280,19 @@ export type ListInvitesQuery = {
     __typename: "Invite";
     id: string;
     uid: string;
+    salt: string;
     firstName: string;
-    middleName: string;
+    middleName?: string | null;
     lastName: string;
-    dob: string;
+    dobDay?: number | null;
+    dobMonth?: number | null;
+    dobYear?: number | null;
     email: string;
-    role: string;
-    odsCode: string;
-    status: string;
+    role?: string | null;
+    odsCode?: string | null;
+    statusInvite: string;
+    statusPYI: string;
+    createdBy: string;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
@@ -241,14 +303,19 @@ export type OnCreateInviteSubscription = {
   __typename: "Invite";
   id: string;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -257,14 +324,19 @@ export type OnUpdateInviteSubscription = {
   __typename: "Invite";
   id: string;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -273,14 +345,19 @@ export type OnDeleteInviteSubscription = {
   __typename: "Invite";
   id: string;
   uid: string;
+  salt: string;
   firstName: string;
-  middleName: string;
+  middleName?: string | null;
   lastName: string;
-  dob: string;
+  dobDay?: number | null;
+  dobMonth?: number | null;
+  dobYear?: number | null;
   email: string;
-  role: string;
-  odsCode: string;
-  status: string;
+  role?: string | null;
+  odsCode?: string | null;
+  statusInvite: string;
+  statusPYI: string;
+  createdBy: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -298,14 +375,19 @@ export class APIService {
           __typename
           id
           uid
+          salt
           firstName
           middleName
           lastName
-          dob
+          dobDay
+          dobMonth
+          dobYear
           email
           role
           odsCode
-          status
+          statusInvite
+          statusPYI
+          createdBy
           createdAt
           updatedAt
         }
@@ -330,14 +412,19 @@ export class APIService {
           __typename
           id
           uid
+          salt
           firstName
           middleName
           lastName
-          dob
+          dobDay
+          dobMonth
+          dobYear
           email
           role
           odsCode
-          status
+          statusInvite
+          statusPYI
+          createdBy
           createdAt
           updatedAt
         }
@@ -362,14 +449,19 @@ export class APIService {
           __typename
           id
           uid
+          salt
           firstName
           middleName
           lastName
-          dob
+          dobDay
+          dobMonth
+          dobYear
           email
           role
           odsCode
-          status
+          statusInvite
+          statusPYI
+          createdBy
           createdAt
           updatedAt
         }
@@ -391,14 +483,19 @@ export class APIService {
           __typename
           id
           uid
+          salt
           firstName
           middleName
           lastName
-          dob
+          dobDay
+          dobMonth
+          dobYear
           email
           role
           odsCode
-          status
+          statusInvite
+          statusPYI
+          createdBy
           createdAt
           updatedAt
         }
@@ -423,14 +520,19 @@ export class APIService {
             __typename
             id
             uid
+            salt
             firstName
             middleName
             lastName
-            dob
+            dobDay
+            dobMonth
+            dobYear
             email
             role
             odsCode
-            status
+            statusInvite
+            statusPYI
+            createdBy
             createdAt
             updatedAt
           }
@@ -461,14 +563,19 @@ export class APIService {
           __typename
           id
           uid
+          salt
           firstName
           middleName
           lastName
-          dob
+          dobDay
+          dobMonth
+          dobYear
           email
           role
           odsCode
-          status
+          statusInvite
+          statusPYI
+          createdBy
           createdAt
           updatedAt
         }
@@ -487,14 +594,19 @@ export class APIService {
           __typename
           id
           uid
+          salt
           firstName
           middleName
           lastName
-          dob
+          dobDay
+          dobMonth
+          dobYear
           email
           role
           odsCode
-          status
+          statusInvite
+          statusPYI
+          createdBy
           createdAt
           updatedAt
         }
@@ -513,14 +625,19 @@ export class APIService {
           __typename
           id
           uid
+          salt
           firstName
           middleName
           lastName
-          dob
+          dobDay
+          dobMonth
+          dobYear
           email
           role
           odsCode
-          status
+          statusInvite
+          statusPYI
+          createdBy
           createdAt
           updatedAt
         }

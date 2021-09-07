@@ -29,19 +29,30 @@ export class InviteFormDataService {
     usrData = usrData.concat(this.employeeDetails.firstName.trim().toLowerCase());
     usrData = usrData.concat(this.employeeDetails.lastName.trim().toLowerCase());
     usrData = usrData.concat(this.employeeDetails.email.trim().toLowerCase());
+    console.log("Usr: " + usrData);
+
+    // sudo salt - look at using iterations to do properly (cipher)
+    const salt = this.makeSalt(6);
+    console.log("Salt: " + salt);
 
     // Save invite
     let invite: Invite = {
-      uid: Md5.init(usrData),
+      uid: Md5.init(salt + usrData),
+      salt: salt,
       firstName: this.employeeDetails.firstName,
       middleName: this.employeeDetails.middleName,
       lastName: this.employeeDetails.lastName,
-      dob: this.employeeDetails.dob,
+      dobDay: this.employeeDetails.dobDay,
+      dobMonth: this.employeeDetails.dobMonth,
+      dobYear: this.employeeDetails.dobYear,
       email: this.employeeDetails.email,
       role: this.employeeDetails.role,
       odsCode: this.employeeDetails.odsCode,
-      status: "CREATED"
+      statusInvite: "CREATED",
+      statusPYI: "PENDING",
+      createdBy: "Data Unavailable"
     };
+    console.log("Invite: " + invite);
 
     // Save Invite
     this.api.CreateInvite(invite).then(event => {
@@ -55,5 +66,16 @@ export class InviteFormDataService {
     // http post to backend server... send email...
 
     console.log(combinedData);
+  }
+
+  makeSalt(length: number) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() *
+        charactersLength));
+    }
+    return result;
   }
 }

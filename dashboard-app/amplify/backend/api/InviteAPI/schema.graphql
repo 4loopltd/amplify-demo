@@ -1,12 +1,17 @@
 type Invite @model {
   id: ID!
   uid: String!
+  salt: String!
   firstName: String!
-  middleName: String!
+  middleName: String
   lastName: String!
-  dob: String!
+  dobDay: Int
+  dobMonth: Int
+  dobYear: Int
   email: String!
-  role: String!
-  odsCode: String!
-  status: String!
+  role: String
+  odsCode: String
+  statusInvite: String!
+  statusPYI: String!
+  createdBy: String!
 }
