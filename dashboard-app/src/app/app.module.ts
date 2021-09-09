@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import {AmplifyUIAngularModule} from "@aws-amplify/ui-angular";
 
 import {AppRoutingModule} from './app-routing.module';
@@ -16,7 +18,7 @@ import {InviteCreateComponent} from './components/invite/invite-create/invite-cr
 import {InviteChecksComponent} from './components/invite/invite-checks/invite-checks.component';
 import {InviteEmployeeComponent} from './components/invite/invite-employee/invite-employee.component';
 import {InviteSummaryComponent} from './components/invite/invite-summary/invite-summary.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//??? boot
 
 @NgModule({
   declarations: [

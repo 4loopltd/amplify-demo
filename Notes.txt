@@ -186,6 +186,9 @@ npm install md5-typescript -save
 
 // popercore???
 
+ ng add @ng-bootstrap/ng-bootstrap
+
+
 
 ########################################
 
