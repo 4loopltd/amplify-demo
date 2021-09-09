@@ -19,6 +19,7 @@ export type Invite = {
   dobMonth: number,
   dobYear: number,
   email: string,
+  phone: string,
   role: string,
   odsCode: string,
   statusInvite: string,

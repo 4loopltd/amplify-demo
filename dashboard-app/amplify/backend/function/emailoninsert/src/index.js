@@ -51,11 +51,34 @@ exports.handler = event => {
     // Handle promise's fulfilled/rejected states
     sendPromise.then(
       function (data) {
-        console.log("Message id: " + data.MessageId);
+        console.log("Email Message id: " + data.MessageId);
       }).catch(
       function (err) {
         console.error(err, err.stack);
       });
+
+
+    var paramsSMS = {
+      Message: 'TEXT_MESSAGE',
+      PhoneNumber: '+447576520820',
+      MessageAttributes: {
+        'AWS.SNS.SMS.SenderID': {
+          'DataType': 'String',
+          'StringValue': 'subject'
+        }
+      }
+    };
+
+    var publishTextPromise = new AWS.SNS({apiVersion: '2010-03-31'}).publish(paramsSMS).promise();
+
+    publishTextPromise.then(
+      function (data) {
+        console.log("SMS Message id: " + data.MessageId);
+      }).catch(
+      function (err) {
+        console.error(err, err.stack);
+      });
+
   }
 
 }

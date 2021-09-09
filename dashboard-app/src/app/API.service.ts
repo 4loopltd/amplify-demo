@@ -26,6 +26,7 @@ export type CreateInviteInput = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -43,6 +44,7 @@ export type ModelInviteConditionInput = {
   dobMonth?: ModelIntInput | null;
   dobYear?: ModelIntInput | null;
   email?: ModelStringInput | null;
+  phone?: ModelStringInput | null;
   role?: ModelStringInput | null;
   odsCode?: ModelStringInput | null;
   statusInvite?: ModelStringInput | null;
@@ -116,6 +118,7 @@ export type Invite = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -136,6 +139,7 @@ export type UpdateInviteInput = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email?: string | null;
+  phone?: string | null;
   role?: string | null;
   odsCode?: string | null;
   statusInvite?: string | null;
@@ -158,6 +162,7 @@ export type ModelInviteFilterInput = {
   dobMonth?: ModelIntInput | null;
   dobYear?: ModelIntInput | null;
   email?: ModelStringInput | null;
+  phone?: ModelStringInput | null;
   role?: ModelStringInput | null;
   odsCode?: ModelStringInput | null;
   statusInvite?: ModelStringInput | null;
@@ -202,6 +207,7 @@ export type CreateInviteMutation = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -223,6 +229,7 @@ export type UpdateInviteMutation = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -244,6 +251,7 @@ export type DeleteInviteMutation = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -265,6 +273,7 @@ export type GetInviteQuery = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -288,6 +297,7 @@ export type ListInvitesQuery = {
     dobMonth?: number | null;
     dobYear?: number | null;
     email: string;
+    phone: string;
     role?: string | null;
     odsCode?: string | null;
     statusInvite: string;
@@ -311,6 +321,7 @@ export type OnCreateInviteSubscription = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -332,6 +343,7 @@ export type OnUpdateInviteSubscription = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -353,6 +365,7 @@ export type OnDeleteInviteSubscription = {
   dobMonth?: number | null;
   dobYear?: number | null;
   email: string;
+  phone: string;
   role?: string | null;
   odsCode?: string | null;
   statusInvite: string;
@@ -383,6 +396,7 @@ export class APIService {
           dobMonth
           dobYear
           email
+          phone
           role
           odsCode
           statusInvite
@@ -420,6 +434,7 @@ export class APIService {
           dobMonth
           dobYear
           email
+          phone
           role
           odsCode
           statusInvite
@@ -457,6 +472,7 @@ export class APIService {
           dobMonth
           dobYear
           email
+          phone
           role
           odsCode
           statusInvite
@@ -491,6 +507,7 @@ export class APIService {
           dobMonth
           dobYear
           email
+          phone
           role
           odsCode
           statusInvite
@@ -528,6 +545,7 @@ export class APIService {
             dobMonth
             dobYear
             email
+            phone
             role
             odsCode
             statusInvite
@@ -571,6 +589,7 @@ export class APIService {
           dobMonth
           dobYear
           email
+          phone
           role
           odsCode
           statusInvite
@@ -602,6 +621,7 @@ export class APIService {
           dobMonth
           dobYear
           email
+          phone
           role
           odsCode
           statusInvite
@@ -633,6 +653,7 @@ export class APIService {
           dobMonth
           dobYear
           email
+          phone
           role
           odsCode
           statusInvite
