@@ -34,7 +34,7 @@ exports.handler = event => {
             Data: '<!DOCTYPE html><html><body>' +
               '<h1>Provide My Identity Invitation</h1>' +
               "<p>Please complete the " +
-              "<a href='http://localhost:4202?id=" + candidateUID + "'>Care Worker Registration</a></p>" +
+              "<a href='http://localhost:4202?id=" + candidateUID + "'>Worker Registration</a></p>" +
               '<p>Thanks, [Support Team Link]</p>' +
               '</body></html>'
           },
