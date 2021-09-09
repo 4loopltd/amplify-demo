@@ -46,6 +46,7 @@ export class InviteFormDataService {
       dobMonth: this.employeeDetails.dobMonth,
       dobYear: this.employeeDetails.dobYear,
       email: this.employeeDetails.email,
+      phone: this.employeeDetails.phone,
       role: this.employeeDetails.role,
       odsCode: this.employeeDetails.odsCode,
       statusInvite: "CREATED",

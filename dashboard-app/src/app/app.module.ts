@@ -16,6 +16,7 @@ import {InviteCreateComponent} from './components/invite/invite-create/invite-cr
 import {InviteChecksComponent} from './components/invite/invite-checks/invite-checks.component';
 import {InviteEmployeeComponent} from './components/invite/invite-employee/invite-employee.component';
 import {InviteSummaryComponent} from './components/invite/invite-summary/invite-summary.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {InviteSummaryComponent} from './components/invite/invite-summary/invite-
     AmplifyUIAngularModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

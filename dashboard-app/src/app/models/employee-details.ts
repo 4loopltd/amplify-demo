@@ -6,6 +6,7 @@ export class EmployeeDetails {
   dobMonth!: number;
   dobYear!: number;
   email: string = '';
+  phone!: string;
   role!: string;
   odsCode!: string;
 }

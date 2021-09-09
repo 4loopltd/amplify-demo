@@ -11,6 +11,7 @@ subscription OnCreateInvite {
     dobMonth
     dobYear
     email
+    phone
     role
     odsCode
     statusInvite
@@ -32,6 +33,7 @@ subscription OnUpdateInvite {
     dobMonth
     dobYear
     email
+    phone
     role
     odsCode
     statusInvite
@@ -53,6 +55,7 @@ subscription OnDeleteInvite {
     dobMonth
     dobYear
     email
+    phone
     role
     odsCode
     statusInvite

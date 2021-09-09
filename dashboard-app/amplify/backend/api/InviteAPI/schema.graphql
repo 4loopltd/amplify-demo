@@ -9,6 +9,7 @@ type Invite @model {
   dobMonth: Int
   dobYear: Int
   email: String!
+  phone: String!
   role: String
   odsCode: String
   statusInvite: String!
