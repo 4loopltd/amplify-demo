@@ -11,6 +11,11 @@ export class VerificationDetails {
   salt: String = '';
   otpGenerated: string = '';
 
+  isPresentUID() {
+    console.log("isPresentUID: " + this.uid );
+    return !!this.uid;
+  }
+
   isValidUID() {
     if(!this.uid || !this.firstName|| !this.lastName|| !this.email){
       return false;
@@ -38,5 +43,7 @@ export class VerificationDetails {
     console.log("Valid OTP: " + (this.otp === this.otpGenerated) );
     return this.otp === this.otpGenerated;
   }
+
+
 
 }

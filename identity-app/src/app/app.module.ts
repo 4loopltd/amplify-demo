@@ -14,6 +14,9 @@ import { FooterComponent } from './components/app/footer/footer.component';
 import { InviteVerifyComponent } from './components/invite/invite-verify/invite-verify.component';
 import { InviteLandingComponent } from './components/invite/invite-landing/invite-landing.component';
 import { InvitePYIComponent } from './components/invite/invite-pyi/invite-pyi.component';
+import { InviteErrorComponent } from './components/invite/invite-error/invite-error.component';
+import { InviteThankyouComponent } from './components/invite/invite-thankyou/invite-thankyou.component';
+import { InviteCompleteComponent } from './components/invite/invite-complete/invite-complete.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { InvitePYIComponent } from './components/invite/invite-pyi/invite-pyi.co
     FooterComponent,
     InviteLandingComponent,
     InviteVerifyComponent,
-    InvitePYIComponent
+    InvitePYIComponent,
+    InviteErrorComponent,
+    InviteThankyouComponent,
+    InviteCompleteComponent
   ],
   imports: [
     AmplifyUIAngularModule,

@@ -6,7 +6,7 @@ import {VerificationDetails} from "../models/verification-details";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LinkGuard implements CanActivate {
 
   verificationDetails: VerificationDetails;
 
@@ -15,12 +15,12 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.verificationDetails.isValidUID() && this.verificationDetails.isValidOTP()) {
-      // logged in so return true
+    if (this.verificationDetails.isPresentUID()) {
+      // has UID so return true
       return true;
     }
-    // not logged in so redirect to login page with the return url
-    this.router.navigate(['/inviteverify'], { queryParams: { returnUrl: state.url }});
+    // redirect to error page with the return url
+    this.router.navigate(['/inviteerror'], { queryParams: { returnUrl: state.url }});
     return false;
   }
 }

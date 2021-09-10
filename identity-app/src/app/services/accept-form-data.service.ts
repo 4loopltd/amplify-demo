@@ -15,4 +15,7 @@ export class AcceptFormDataService {
     //this.employeeDetails = new EmployeeDetails();
   }
 
+  reset() {
+    this.verificationDetails = new VerificationDetails();
+  }
 }

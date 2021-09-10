@@ -18,11 +18,15 @@
            aria-describedby="emailHelp" required="true"/>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
+
+  <div class="form-group" *ngIf="!verificationDetails.isValidUID() && verificationDetails.firstName && verificationDetails.lastName && verificationDetails.email">
+    <p class="error">Invalid details, please try again.</p>
+  </div>
 </div>
 
 <div class="container">
   <h2>Two-factor authentication</h2>
-  <p>An authentication code has been sent to the phone number registered by your sponsor.</p>
+  <p>An authentication code has been sent to the phone number registered by your sponsor. </p>
 </div>
 
 <div class="container">
@@ -34,7 +38,7 @@
       <input type="text" class="form-control" id="otp" [(ngModel)]="verificationDetails.otp" [disabled]="verificationDetails.isValidOTP()" required="true"/>
     </div>
     <div class="col-8">
-      <button type="button" class="btn btn-success" (click)="resendOTP()" [disabled]="verificationDetails.isValidOTP()">
+      <button type="button" class="btn btn-success" (click)="resendOTP()" [disabled]="verificationDetails.isValidOTP()" title="If you do not receive an authentication code within 5 minutes please press the 'Resend' button.">
         {{ verificationDetails.isValidOTP() == true ? 'Validated' : 'Resend' }}
       </button>
     </div>
@@ -44,7 +48,7 @@
 <div class="container">
   <button type="button" class="btn btn-primary" routerLink="/">Home</button>
   <button type="button" class="btn btn-success" routerLink="/invitepyi"
-          [disabled]="!verificationDetails.firstName || !verificationDetails.lastName || !verificationDetails.email || !verificationDetails.isValidOTP()"
+          [disabled]="!verificationDetails.isValidUID() || !verificationDetails.isValidOTP()"
   >Next</button>
 </div>
 
