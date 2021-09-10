@@ -1,5 +1,56 @@
-<p>invite-verify works!</p>
-
-<div *ngIf="id">
-  <p>{{id}}</p>
+<div class="container">
+  <h2>To continue please confirm your details</h2>
+  <p>Enter your personal information as provided by your sponsor.</p>
 </div>
+
+<div class="container">
+  <div class="form-group">
+    <label for="firstName">First name</label>
+    <input type="text" class="form-control" id="firstName" [(ngModel)]="verificationDetails.firstName" required="true"/>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last name</label>
+    <input type="text" class="form-control" id="lastName" [(ngModel)]="verificationDetails.lastName" required="true"/>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" [(ngModel)]="verificationDetails.email"
+           aria-describedby="emailHelp" required="true"/>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Two-factor authentication</h2>
+  <p>An authentication code has been sent to the phone number registered by your sponsor.</p>
+</div>
+
+<div class="container">
+  <div class="form-group">
+    <p>Please enter the code to verify your identity.</p>
+  </div>
+  <div class="form-group row">
+    <div class="col">
+      <input type="text" class="form-control" id="otp" [(ngModel)]="verificationDetails.otp" [disabled]="verificationDetails.isValidOTP()" required="true"/>
+    </div>
+    <div class="col-8">
+      <button type="button" class="btn btn-success" (click)="resendOTP()" [disabled]="verificationDetails.isValidOTP()">
+        {{ verificationDetails.isValidOTP() == true ? 'Validated' : 'Resend' }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <button type="button" class="btn btn-primary" routerLink="/">Home</button>
+  <button type="button" class="btn btn-success" routerLink="/invitepyi"
+          [disabled]="!verificationDetails.firstName || !verificationDetails.lastName || !verificationDetails.email || !verificationDetails.isValidOTP()"
+  >Next</button>
+</div>
+
+<!--
+<div *ngIf="id">
+  <p>UID: {{id}}</p>
+  <p>Expires: {{expires}}</p>
+</div>
+-->
