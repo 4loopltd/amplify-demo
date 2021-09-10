@@ -1,4 +1,5 @@
 import {Md5} from "md5-typescript";
+import {Invite} from "../../types/Invite";
 
 export class VerificationDetails {
   uid: any;
@@ -8,8 +9,8 @@ export class VerificationDetails {
   lastName: string = '';
   email: string = '';
 
-  salt: String = '';
   otpGenerated: string = '';
+  invite: Invite | undefined;
 
   isPresentUID() {
     console.log("isPresentUID: " + this.uid );
@@ -21,12 +22,16 @@ export class VerificationDetails {
       return false;
     }
 
+    if(!this.invite){
+      return false;
+    }
+
     let usrData = '';
     usrData = usrData.concat(this.firstName.trim().toLowerCase());
     usrData = usrData.concat(this.lastName.trim().toLowerCase());
     usrData = usrData.concat(this.email.trim().toLowerCase());
 
-    let calculatedUID = Md5.init(this.salt + usrData);
+    let calculatedUID = Md5.init(this.invite.salt + usrData);
 
     console.log("Input UID: " + this.uid );
     console.log("Calculated UID: " + calculatedUID );
@@ -43,7 +48,5 @@ export class VerificationDetails {
     console.log("Valid OTP: " + (this.otp === this.otpGenerated) );
     return this.otp === this.otpGenerated;
   }
-
-
 
 }

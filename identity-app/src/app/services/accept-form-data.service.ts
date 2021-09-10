@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {VerificationDetails} from "../models/verification-details";
 import {EmployeeDetails} from "../models/employee-details";
+import {APIService} from "../API.service";
+import {Invite} from "../../types/Invite";
 
 @Injectable({
   providedIn: 'root'
