@@ -12,6 +12,7 @@ o	Review - Verification Failed
 export type Invite = {
   uid: string,
   salt: string,
+  otp: string,
   firstName: string,
   middleName: string,
   lastName: string,

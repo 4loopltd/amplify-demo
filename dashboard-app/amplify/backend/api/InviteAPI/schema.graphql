@@ -3,6 +3,7 @@ type Invite @model
   id: ID!
   uid: String!
   salt: String!
+  otp: String!
   firstName: String!
   middleName: String
   lastName: String!

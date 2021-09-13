@@ -4,6 +4,7 @@ subscription OnCreateInvite {
     id
     uid
     salt
+    otp
     firstName
     middleName
     lastName
@@ -26,6 +27,7 @@ subscription OnUpdateInvite {
     id
     uid
     salt
+    otp
     firstName
     middleName
     lastName
@@ -48,6 +50,7 @@ subscription OnDeleteInvite {
     id
     uid
     salt
+    otp
     firstName
     middleName
     lastName

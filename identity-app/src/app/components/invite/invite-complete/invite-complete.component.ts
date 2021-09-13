@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InviteCompleteComponent implements OnInit {
 
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
 }

@@ -187,6 +187,21 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
+          "name" : "otp",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
           "name" : "firstName",
           "description" : null,
           "args" : [ ],
@@ -488,6 +503,15 @@
           "defaultValue" : null
         }, {
           "name" : "salt",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "otp",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -1317,6 +1341,19 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "otp",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
           "name" : "firstName",
           "description" : null,
           "type" : {
@@ -1481,6 +1518,15 @@
           "defaultValue" : null
         }, {
           "name" : "salt",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "otp",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -1673,6 +1719,15 @@
           "defaultValue" : null
         }, {
           "name" : "salt",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "otp",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",

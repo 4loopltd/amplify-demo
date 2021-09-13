@@ -13,34 +13,28 @@ export class InviteVerifyComponent implements OnInit {
 
   verificationDetails: VerificationDetails;
 
-  //employeeDetails: EmployeeDetails;
-
   constructor(private formDataService: AcceptFormDataService, private api: APIService) {
     //let futureTime = new Date().getTime() + (72 * 60 * 60 * 1000);
-
     this.verificationDetails = formDataService.verificationDetails;
-    //this.employeeDetails = formDataService.employeeDetails;
   }
 
   ngOnInit(): void {
-    // get salt
-    // generate otp
+    // get invite inc' salt
     this.queryInvite(this.verificationDetails.uid);
-
-    // fake it till you make it
-    this.verificationDetails.otpGenerated = '12345';
-
   }
 
-  resendOTP() {
-    // verify the otp
+  sendOTP() {
+    let invite = this.verificationDetails.invite;
+    if(!invite){
+      console.log("Invalid Invite!")
+      return;
+    }
 
-    // enable next button
+    invite.otp = this.makeOTP(4);
 
-    console.log(JSON.stringify(this.verificationDetails));
-    //console.log(JSON.stringify(this.employeeDetails));
-
-    console.log("Next: Valid UID " + this.verificationDetails.isValidUID() + ', Valid OTP ' + this.verificationDetails.isValidOTP());
+    this.api.UpdateInvite({id:invite.id, otp: invite.otp}).then(event =>{
+      console.log("Invite updated");
+    })
   }
 
   queryInvite(uid: string) {
@@ -52,10 +46,24 @@ export class InviteVerifyComponent implements OnInit {
         if (items && items.length > 0) {
           this.verificationDetails.invite = items[0] as Invite;
           console.log(JSON.stringify(this.verificationDetails.invite));
+
+          // generate first OTP
+          this.sendOTP();
         } else {
           console.log("Invite not found: " + uid);
         }
       }
     })
+  }
+
+  makeOTP(length: number) {
+    var result = '';
+    var characters = '0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() *
+        charactersLength));
+    }
+    return result;
   }
 }

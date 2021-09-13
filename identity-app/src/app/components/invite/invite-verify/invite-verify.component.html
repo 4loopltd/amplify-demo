@@ -38,7 +38,7 @@
       <input type="text" class="form-control" id="otp" [(ngModel)]="verificationDetails.otp" [disabled]="verificationDetails.isValidOTP()" required="true"/>
     </div>
     <div class="col-8">
-      <button type="button" class="btn btn-success" (click)="resendOTP()" [disabled]="verificationDetails.isValidOTP()" title="If you do not receive an authentication code within 5 minutes please press the 'Resend' button.">
+      <button type="button" class="btn btn-success" (click)="sendOTP()" [disabled]="verificationDetails.isValidOTP()" title="If you do not receive an authentication code within 5 minutes please press the 'Resend' button.">
         {{ verificationDetails.isValidOTP() == true ? 'Validated' : 'Resend' }}
       </button>
     </div>

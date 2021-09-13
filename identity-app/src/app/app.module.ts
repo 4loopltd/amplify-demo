@@ -15,7 +15,6 @@ import { InviteVerifyComponent } from './components/invite/invite-verify/invite-
 import { InviteLandingComponent } from './components/invite/invite-landing/invite-landing.component';
 import { InvitePYIComponent } from './components/invite/invite-pyi/invite-pyi.component';
 import { InviteErrorComponent } from './components/invite/invite-error/invite-error.component';
-import { InviteThankyouComponent } from './components/invite/invite-thankyou/invite-thankyou.component';
 import { InviteCompleteComponent } from './components/invite/invite-complete/invite-complete.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { InviteCompleteComponent } from './components/invite/invite-complete/inv
     InviteVerifyComponent,
     InvitePYIComponent,
     InviteErrorComponent,
-    InviteThankyouComponent,
     InviteCompleteComponent
   ],
   imports: [

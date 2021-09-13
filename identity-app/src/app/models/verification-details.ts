@@ -9,7 +9,6 @@ export class VerificationDetails {
   lastName: string = '';
   email: string = '';
 
-  otpGenerated: string = '';
   invite: Invite | undefined;
 
   isPresentUID() {
@@ -43,12 +42,22 @@ export class VerificationDetails {
   }
 
   isValidOTP() {
-    if(!this.otpGenerated || !this.otp){
+    if(!this.otp){
       return false;
     }
 
-    console.log("Valid OTP: " + (this.otp === this.otpGenerated) );
-    return this.otp === this.otpGenerated;
+    if(!this.invite){
+      console.log("Invalid invite")
+      return false;
+    }
+
+    if(!this.invite.otp){
+      console.log("Invalid invite otp")
+      return false;
+    }
+
+    console.log("Valid OTP: " + (this.otp === this.invite.otp) );
+    return this.otp === this.invite.otp;
   }
 
 }

@@ -10,8 +10,10 @@ o	Review - Verification Failed
  */
 
 export type Invite = {
+  id: string,
   uid: string,
   salt: string,
+  otp: string,
   firstName: string,
   middleName: string,
   lastName: string,

@@ -19,6 +19,7 @@ export type CreateInviteInput = {
   id?: string | null;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -37,6 +38,7 @@ export type CreateInviteInput = {
 export type ModelInviteConditionInput = {
   uid?: ModelStringInput | null;
   salt?: ModelStringInput | null;
+  otp?: ModelStringInput | null;
   firstName?: ModelStringInput | null;
   middleName?: ModelStringInput | null;
   lastName?: ModelStringInput | null;
@@ -111,6 +113,7 @@ export type Invite = {
   id: string;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -132,6 +135,7 @@ export type UpdateInviteInput = {
   id: string;
   uid?: string | null;
   salt?: string | null;
+  otp?: string | null;
   firstName?: string | null;
   middleName?: string | null;
   lastName?: string | null;
@@ -155,6 +159,7 @@ export type ModelInviteFilterInput = {
   id?: ModelIDInput | null;
   uid?: ModelStringInput | null;
   salt?: ModelStringInput | null;
+  otp?: ModelStringInput | null;
   firstName?: ModelStringInput | null;
   middleName?: ModelStringInput | null;
   lastName?: ModelStringInput | null;
@@ -205,6 +210,7 @@ export type CreateInviteMutation = {
   id: string;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -227,6 +233,7 @@ export type UpdateInviteMutation = {
   id: string;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -249,6 +256,7 @@ export type DeleteInviteMutation = {
   id: string;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -271,6 +279,7 @@ export type GetInviteQuery = {
   id: string;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -295,6 +304,7 @@ export type ListInvitesQuery = {
     id: string;
     uid: string;
     salt: string;
+    otp: string;
     firstName: string;
     middleName?: string | null;
     lastName: string;
@@ -321,6 +331,7 @@ export type InviteByUIDQuery = {
     id: string;
     uid: string;
     salt: string;
+    otp: string;
     firstName: string;
     middleName?: string | null;
     lastName: string;
@@ -345,6 +356,7 @@ export type OnCreateInviteSubscription = {
   id: string;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -367,6 +379,7 @@ export type OnUpdateInviteSubscription = {
   id: string;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -389,6 +402,7 @@ export type OnDeleteInviteSubscription = {
   id: string;
   uid: string;
   salt: string;
+  otp: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;
@@ -420,6 +434,7 @@ export class APIService {
           id
           uid
           salt
+          otp
           firstName
           middleName
           lastName
@@ -458,6 +473,7 @@ export class APIService {
           id
           uid
           salt
+          otp
           firstName
           middleName
           lastName
@@ -496,6 +512,7 @@ export class APIService {
           id
           uid
           salt
+          otp
           firstName
           middleName
           lastName
@@ -531,6 +548,7 @@ export class APIService {
           id
           uid
           salt
+          otp
           firstName
           middleName
           lastName
@@ -569,6 +587,7 @@ export class APIService {
             id
             uid
             salt
+            otp
             firstName
             middleName
             lastName
@@ -618,6 +637,7 @@ export class APIService {
             id
             uid
             salt
+            otp
             firstName
             middleName
             lastName
@@ -668,6 +688,7 @@ export class APIService {
           id
           uid
           salt
+          otp
           firstName
           middleName
           lastName
@@ -700,6 +721,7 @@ export class APIService {
           id
           uid
           salt
+          otp
           firstName
           middleName
           lastName
@@ -732,6 +754,7 @@ export class APIService {
           id
           uid
           salt
+          otp
           firstName
           middleName
           lastName

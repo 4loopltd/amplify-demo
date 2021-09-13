@@ -5,6 +5,35 @@ AWS.config.update({region: 'eu-west-2'});
 exports.handler = event => {
 
   for (const streamedItem of event.Records) {
+    if(streamedItem.eventName === 'MODIFY'){
+      const oldOTP = streamedItem.dynamodb.OldImage.otp.S;
+      const candidateOTP = streamedItem.dynamodb.NewImage.otp.S;
+      const candidatePhone = streamedItem.dynamodb.NewImage.phone.S;
+
+      var paramsSMS = {
+        Message: candidateOTP,
+        PhoneNumber: '+447576520820',
+        MessageAttributes: {
+          'AWS.SNS.SMS.SenderID': {
+            'DataType': 'String',
+            'StringValue': 'subject'
+          }
+        }
+      };
+
+      var publishTextPromise = new AWS.SNS({apiVersion: '2010-03-31'}).publish(paramsSMS).promise();
+
+      publishTextPromise.then(
+        function (data) {
+          console.log("SMS Message id: " + data.MessageId);
+        }).catch(
+        function (err) {
+          console.error(err, err.stack);
+        });
+
+      continue;
+    }
+
     if (streamedItem.eventName !== 'INSERT') {
       continue;
     }

@@ -8,13 +8,13 @@ import {InviteVerifyComponent} from "./components/invite/invite-verify/invite-ve
 import {InviteLandingComponent} from "./components/invite/invite-landing/invite-landing.component";
 import {InvitePYIComponent} from "./components/invite/invite-pyi/invite-pyi.component";
 import {InviteErrorComponent} from "./components/invite/invite-error/invite-error.component";
-import {InviteThankyouComponent} from "./components/invite/invite-thankyou/invite-thankyou.component";
+import {InviteCompleteComponent} from "./components/invite/invite-complete/invite-complete.component";
 
 const routes: Routes = [
   {path: '', component: InviteLandingComponent},
   {path: 'inviteverify', component: InviteVerifyComponent, canActivate: [LinkGuard]},
   {path: 'invitepyi', component: InvitePYIComponent, canActivate: [AuthGuard]},
-  {path: 'invitethankyou', component: InviteThankyouComponent},
+  {path: 'invitecomplete', component: InviteCompleteComponent},
   {path: 'inviteerror', component: InviteErrorComponent},
   {path: '**', redirectTo: ''}
 ];

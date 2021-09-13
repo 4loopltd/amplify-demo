@@ -4,6 +4,7 @@ query GetInvite($id: ID!) {
     id
     uid
     salt
+    otp
     firstName
     middleName
     lastName
@@ -31,6 +32,7 @@ query ListInvites(
       id
       uid
       salt
+      otp
       firstName
       middleName
       lastName
@@ -68,6 +70,7 @@ query InviteByUID(
       id
       uid
       salt
+      otp
       firstName
       middleName
       lastName

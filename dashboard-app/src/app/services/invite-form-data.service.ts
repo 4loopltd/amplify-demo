@@ -39,6 +39,7 @@ export class InviteFormDataService {
     let invite: Invite = {
       uid: Md5.init(salt + usrData),
       salt: salt,
+      otp: '',
       firstName: this.employeeDetails.firstName,
       middleName: this.employeeDetails.middleName,
       lastName: this.employeeDetails.lastName,

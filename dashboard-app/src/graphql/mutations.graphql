@@ -7,6 +7,7 @@ mutation CreateInvite(
     id
     uid
     salt
+    otp
     firstName
     middleName
     lastName
@@ -32,6 +33,7 @@ mutation UpdateInvite(
     id
     uid
     salt
+    otp
     firstName
     middleName
     lastName
@@ -57,6 +59,7 @@ mutation DeleteInvite(
     id
     uid
     salt
+    otp
     firstName
     middleName
     lastName
