@@ -196,3 +196,14 @@ E£xample Node salt
 https://stackoverflow.com/questions/17201450/salt-and-hash-password-in-nodejs-w-crypto
 
 
+########################################
+
+Pull api
+amplify add codegen --apiId 5tgsv3kqfvd37j75iawyihuv6u
+
+
+
+repull api
+amplify codegen remove
+amplify add codegen --apiId 5tgsv3kqfvd37j75iawyihuv6u
+

@@ -50,3 +50,40 @@ query ListInvites(
     nextToken
   }
 }
+query InviteByUID(
+  $uid: String
+  $sortDirection: ModelSortDirection
+  $filter: ModelInviteFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  inviteByUID(
+    uid: $uid
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      uid
+      salt
+      firstName
+      middleName
+      lastName
+      dobDay
+      dobMonth
+      dobYear
+      email
+      phone
+      role
+      odsCode
+      statusInvite
+      statusPYI
+      createdBy
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}

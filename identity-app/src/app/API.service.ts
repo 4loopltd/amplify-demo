@@ -195,6 +195,11 @@ export type ModelInviteConnection = {
   nextToken?: string | null;
 };
 
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC"
+}
+
 export type CreateInviteMutation = {
   __typename: "Invite";
   id: string;
@@ -284,6 +289,32 @@ export type GetInviteQuery = {
 };
 
 export type ListInvitesQuery = {
+  __typename: "ModelInviteConnection";
+  items?: Array<{
+    __typename: "Invite";
+    id: string;
+    uid: string;
+    salt: string;
+    firstName: string;
+    middleName?: string | null;
+    lastName: string;
+    dobDay?: number | null;
+    dobMonth?: number | null;
+    dobYear?: number | null;
+    email: string;
+    phone: string;
+    role?: string | null;
+    odsCode?: string | null;
+    statusInvite: string;
+    statusPYI: string;
+    createdBy: string;
+    createdAt: string;
+    updatedAt: string;
+  } | null> | null;
+  nextToken?: string | null;
+};
+
+export type InviteByUIDQuery = {
   __typename: "ModelInviteConnection";
   items?: Array<{
     __typename: "Invite";
@@ -572,6 +603,61 @@ export class APIService {
     )) as any;
     return <ListInvitesQuery>response.data.listInvites;
   }
+  async InviteByUID(
+    uid?: string,
+    sortDirection?: ModelSortDirection,
+    filter?: ModelInviteFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<InviteByUIDQuery> {
+    const statement = `query InviteByUID($uid: String, $sortDirection: ModelSortDirection, $filter: ModelInviteFilterInput, $limit: Int, $nextToken: String) {
+        inviteByUID(uid: $uid, sortDirection: $sortDirection, filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            uid
+            salt
+            firstName
+            middleName
+            lastName
+            dobDay
+            dobMonth
+            dobYear
+            email
+            phone
+            role
+            odsCode
+            statusInvite
+            statusPYI
+            createdBy
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (uid) {
+      gqlAPIServiceArguments.uid = uid;
+    }
+    if (sortDirection) {
+      gqlAPIServiceArguments.sortDirection = sortDirection;
+    }
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <InviteByUIDQuery>response.data.inviteByUID;
+  }
   OnCreateInviteListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateInvite">>
   > = API.graphql(
@@ -667,6 +753,4 @@ export class APIService {
   ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteInvite">>
   >;
-
-
 }

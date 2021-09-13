@@ -19,10 +19,12 @@ export class VerificationDetails {
 
   isValidUID() {
     if(!this.uid || !this.firstName|| !this.lastName|| !this.email){
+      console.log("Invalid inputs")
       return false;
     }
 
     if(!this.invite){
+      console.log("Invalid invite")
       return false;
     }
 

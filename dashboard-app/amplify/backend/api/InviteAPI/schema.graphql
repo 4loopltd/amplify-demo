@@ -1,4 +1,5 @@
-type Invite @model {
+type Invite @model
+  @key(name: "inviteByUID", fields: ["uid"], queryField: "inviteByUID") {
   id: ID!
   uid: String!
   salt: String!

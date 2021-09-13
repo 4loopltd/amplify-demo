@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AcceptFormDataService} from "../../../services/accept-form-data.service";
-import {EmployeeDetails} from "../../../models/employee-details";
 import {VerificationDetails} from "../../../models/verification-details";
 import {APIService} from "../../../API.service";
 import {Invite} from "../../../../types/Invite";
-import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-invite-verify',
@@ -14,6 +12,7 @@ import {filter} from "rxjs/operators";
 export class InviteVerifyComponent implements OnInit {
 
   verificationDetails: VerificationDetails;
+
   //employeeDetails: EmployeeDetails;
 
   constructor(private formDataService: AcceptFormDataService, private api: APIService) {
@@ -44,12 +43,17 @@ export class InviteVerifyComponent implements OnInit {
     console.log("Next: Valid UID " + this.verificationDetails.isValidUID() + ', Valid OTP ' + this.verificationDetails.isValidOTP());
   }
 
-  queryInvite(uid: string){
-    this.api.ListInvites({uid: {eq: uid}}, 1).then(event => {
-      if(event){
+  queryInvite(uid: string) {
+    console.log("Looking for: " + uid);
+    this.api.InviteByUID(uid).then(event => {
+      if (event) {
         let items = event.items;
+        console.log(JSON.stringify(items));
         if (items && items.length > 0) {
-            this.verificationDetails.invite = items[0] as Invite;
+          this.verificationDetails.invite = items[0] as Invite;
+          console.log(JSON.stringify(this.verificationDetails.invite));
+        } else {
+          console.log("Invite not found: " + uid);
         }
       }
     })
