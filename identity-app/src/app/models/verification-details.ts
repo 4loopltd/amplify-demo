@@ -12,18 +12,15 @@ export class VerificationDetails {
   invite: Invite | undefined;
 
   isPresentUID() {
-    console.log("isPresentUID: " + this.uid );
     return !!this.uid;
   }
 
   isValidUID() {
     if(!this.uid || !this.firstName|| !this.lastName|| !this.email){
-      console.log("Invalid inputs")
       return false;
     }
 
     if(!this.invite){
-      console.log("Invalid invite")
       return false;
     }
 
@@ -33,11 +30,6 @@ export class VerificationDetails {
     usrData = usrData.concat(this.email.trim().toLowerCase());
 
     let calculatedUID = Md5.init(this.invite.salt + usrData);
-
-    console.log("Input UID: " + this.uid );
-    console.log("Calculated UID: " + calculatedUID );
-
-    console.log("Valid UID: " + (this.uid === calculatedUID));
     return this.uid === calculatedUID;
   }
 
@@ -47,16 +39,13 @@ export class VerificationDetails {
     }
 
     if(!this.invite){
-      console.log("Invalid invite")
       return false;
     }
 
     if(!this.invite.otp){
-      console.log("Invalid invite otp")
       return false;
     }
 
-    console.log("Valid OTP: " + (this.otp === this.invite.otp) );
     return this.otp === this.invite.otp;
   }
 

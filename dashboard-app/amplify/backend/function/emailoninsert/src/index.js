@@ -10,9 +10,13 @@ exports.handler = event => {
       const candidateOTP = streamedItem.dynamodb.NewImage.otp.S;
       const candidatePhone = streamedItem.dynamodb.NewImage.phone.S;
 
+      if(!candidateOTP || candidateOTP === oldOTP){
+        continue;
+      }
+
       var paramsSMS = {
         Message: candidateOTP,
-        PhoneNumber: '+447576520820',
+        PhoneNumber: '+44' + candidatePhone.replace(/^0+/, ''),
         MessageAttributes: {
           'AWS.SNS.SMS.SenderID': {
             'DataType': 'String',
