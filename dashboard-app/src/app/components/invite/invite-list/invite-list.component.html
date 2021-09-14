@@ -1,25 +1,29 @@
 <!--<p>invite-list works!</p>-->
 
-<div class="container">
-  <table class="table table-striped">
-    <thead>
+<div class="container table-responsive-sm">
+  <table class="table table-striped table-sm">
+    <thead class="thead-dark">
     <tr>
+      <!--
       <th>UID</th>
-      <th>Owner</th>
-      <th>First</th>
-      <th>Last</th>
-      <th>Email</th>
-      <th>Invite Status</th>
-      <th>PYI Status</th>
+      -->
+      <th scope="col">Owner</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">Invite</th>
+      <th scope="col">PYI</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let invite of invites">
+      <!--
       <td>{{invite!.uid}}</td>
+      -->
       <td>{{invite!.createdBy}}</td>
       <td>{{invite!.firstName}}</td>
       <td>{{invite!.lastName}}</td>
-      <td>{{invite!.email}}</td>
+      <td style="word-wrap: break-word;min-width: 6.75rem;max-width: 6.75rem;">{{invite!.email}}</td>
       <td>{{invite!.statusInvite}}</td>
       <td>{{invite!.statusPYI}}</td>
     </tr>
