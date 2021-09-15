@@ -19,8 +19,8 @@ export class InviteVerifyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // get invite inc' salt
-    this.queryInvite(this.verificationDetails.uid);
+    // send initial OTP
+    this.sendOTP();
   }
 
   sendOTP() {
@@ -34,25 +34,6 @@ export class InviteVerifyComponent implements OnInit {
 
     this.api.UpdateInvite({id:invite.id, otp: invite.otp}).then(event =>{
       console.log("Invite updated");
-    })
-  }
-
-  queryInvite(uid: string) {
-    console.log("Looking for: " + uid);
-    this.api.InviteByUID(uid).then(event => {
-      if (event) {
-        let items = event.items;
-        console.log(JSON.stringify(items));
-        if (items && items.length > 0) {
-          this.verificationDetails.invite = items[0] as Invite;
-          console.log(JSON.stringify(this.verificationDetails.invite));
-
-          // generate first OTP
-          this.sendOTP();
-        } else {
-          console.log("Invite not found: " + uid);
-        }
-      }
     })
   }
 

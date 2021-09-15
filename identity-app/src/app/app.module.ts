@@ -16,6 +16,7 @@ import { InviteLandingComponent } from './components/invite/invite-landing/invit
 import { InvitePYIComponent } from './components/invite/invite-pyi/invite-pyi.component';
 import { InviteErrorComponent } from './components/invite/invite-error/invite-error.component';
 import { InviteCompleteComponent } from './components/invite/invite-complete/invite-complete.component';
+import { InviteAcceptedComponent } from './components/invite/invite-accepted/invite-accepted.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InviteCompleteComponent } from './components/invite/invite-complete/inv
     InviteVerifyComponent,
     InvitePYIComponent,
     InviteErrorComponent,
-    InviteCompleteComponent
+    InviteCompleteComponent,
+    InviteAcceptedComponent
   ],
   imports: [
     AmplifyUIAngularModule,

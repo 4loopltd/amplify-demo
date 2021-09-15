@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from "@angular/core";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {AcceptFormDataService} from "../services/accept-form-data.service";
 import {VerificationDetails} from "../models/verification-details";
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class LinkGuard implements CanActivate {
+export class AcceptedGuard implements CanActivate{
 
   verificationDetails: VerificationDetails;
 
@@ -15,15 +16,19 @@ export class LinkGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.verificationDetails.isPresentUID()) {
-      // has UID so return true
+
+    if (!this.verificationDetails || !this.verificationDetails.invite) {
       return true;
     }
 
-    console.log("Invalid link");
+    if(this.verificationDetails.invite.statusInvite !== 'ACCEPTED'){
+      return true;
+    }
 
-    // redirect to error page with the return url
-    this.router.navigate(['/inviteerror'], { queryParams: { returnUrl: state.url }});
+    console.log("Invalid invite status");
+
+    // already accepted
+    this.router.navigate(['/inviteaccepted'], { queryParams: { returnUrl: state.url }});
     return false;
   }
 }
