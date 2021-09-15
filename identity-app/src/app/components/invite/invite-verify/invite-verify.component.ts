@@ -35,6 +35,8 @@ export class InviteVerifyComponent implements OnInit {
     this.api.UpdateInvite({id:invite.id, otp: invite.otp}).then(event =>{
       console.log("Invite updated");
     })
+
+    console.log("OTP sent");
   }
 
   makeOTP(length: number) {

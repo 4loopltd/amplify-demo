@@ -1,5 +1,6 @@
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
+const {consolidateMessages} = require("@angular/localize/src/tools/src/extract/translation_files/utils");
 AWS.config.update({region: 'eu-west-2'});
 
 exports.handler = event => {
@@ -11,10 +12,12 @@ exports.handler = event => {
       const candidatePhone = streamedItem.dynamodb.NewImage.phone.S;
 
       if(!candidateOTP || candidateOTP === oldOTP){
+        console.log("No change to OTP");
         continue;
       }
 
       if(!candidatePhone){
+        console.log("No phone number provided");
         continue;
       }
 
@@ -28,6 +31,8 @@ exports.handler = event => {
           }
         }
       };
+
+      console.log("SMS Msg: " + paramsSMS);
 
       var publishTextPromise = new AWS.SNS({apiVersion: '2010-03-31'}).publish(paramsSMS).promise();
 
