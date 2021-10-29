@@ -57,7 +57,7 @@ export class InviteFormDataService {
     console.log("Invite: " + invite);
 
     // Save Invite
-    this.api.CreateInvite(invite).then(event => {
+    this.api.CreateInvite(invite).then(() => {
       console.log("Invite created");
       this.checksDetails = new ChecksDetails();
       this.employeeDetails = new EmployeeDetails();

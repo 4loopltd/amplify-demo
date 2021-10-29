@@ -1,6 +1,5 @@
 // Load the AWS SDK for Node.js
-var AWS = require('aws-sdk');
-const {consolidateMessages} = require("@angular/localize/src/tools/src/extract/translation_files/utils");
+const AWS = require('aws-sdk');
 AWS.config.update({region: 'eu-west-2'});
 
 exports.handler = event => {
@@ -21,7 +20,7 @@ exports.handler = event => {
         continue;
       }
 
-      var paramsSMS = {
+      const paramsSMS = {
         Message: candidateOTP,
         PhoneNumber: '+44' + candidatePhone.replace(/^0+/, ''),
         MessageAttributes: {
@@ -34,7 +33,7 @@ exports.handler = event => {
 
       console.log("SMS Msg: " + paramsSMS);
 
-      var publishTextPromise = new AWS.SNS({apiVersion: '2010-03-31'}).publish(paramsSMS).promise();
+      const publishTextPromise = new AWS.SNS({apiVersion: '2010-03-31'}).publish(paramsSMS).promise();
 
       publishTextPromise.then(
         function (data) {
@@ -69,7 +68,7 @@ exports.handler = event => {
     console.log("Expires: " + expires);
 
     // Create sendEmail params - templates todo...
-    var params = {
+    const params = {
       Destination: { /* required */
         ToAddresses: [candidateEmail]
       },
@@ -77,7 +76,7 @@ exports.handler = event => {
         Body: { /* required */
           Html: {
             Charset: 'UTF-8',
-            Data: '<!DOCTYPE html><html><body>' +
+            Data: "<!DOCTYPE html><html lang='en'><body>" +
               '<h1>Provide My Identity Invitation</h1>' +
               "<p>Please complete the " +
               "<a href='http://localhost:4202?id=" + candidateUID + "'>Worker Registration</a></p>" +
@@ -102,7 +101,7 @@ exports.handler = event => {
     console.log("Sending to: " + candidateEmail);
 
     // Create the promise and SES service object
-    var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
+    const sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
 
     // Handle promise's fulfilled/rejected states
     sendPromise.then(

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {APIService} from "../../../API.service"
 import {Invite} from "../../../../types/Invite";
+import {APIService} from "../../../API.service";
 
 @Component({
   selector: 'app-invite-list',
@@ -29,8 +29,6 @@ export class InviteListComponent implements OnInit {
         }
       }
     )
-
-
   }
 
 }
